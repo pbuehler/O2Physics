@@ -52,7 +52,8 @@ struct FITtest {
   using ATs = aod::AmbiguousTracks;
   using AFTs = aod::AmbiguousFwdTracks;
 
-  void init(InitContext &context) {
+  void init(InitContext& context)
+  {
     diffCuts = (DGCutparHolder)DGCuts;
     // add histograms for the different process functions
     if (context.mOptions.get<bool>("processMain")) {
@@ -116,9 +117,9 @@ struct FITtest {
       registry.add("All/FT0/FT0C", "#FT0C; Channel; FT0C Amplitude",
                    {HistType::kTH2F, {{112, -0.5, 111.5}, {1000, 0., 1000.}}});
       registry.add(
-          "All/FT0/FT0ACCorr",
-          "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FT0/FT0ACCorr",
+        "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // FDD
       registry.add("All/FDD/hFDDAC",
@@ -133,9 +134,9 @@ struct FITtest {
       registry.add("All/FDD/FDDC", "#FDDC; Channel; FDDC Amplitude",
                    {HistType::kTH2F, {{8, -0.5, 7.5}, {1000, 0., 1000.}}});
       registry.add(
-          "All/FDD/FDDACCorr",
-          "#FDD amp correlation; FDDA Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FDD/FDDACCorr",
+        "#FDD amp correlation; FDDA Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // FIT
       registry.add("All/FITAamp", "#FIT A side; FITA Amplitude",
@@ -143,9 +144,9 @@ struct FITtest {
       registry.add("All/FITCamp", "#FIT C side; FITC Amplitude",
                    {HistType::kTH1F, {{2000, -0.5, 1999.5}}});
       registry.add(
-          "All/FITACCorr",
-          "FIT amp correlation; FT0A Amplitude; FT0C Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FITACCorr",
+        "FIT amp correlation; FT0A Amplitude; FT0C Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // ZDC
       registry.add("All/ZDC/hZNAC",
@@ -163,63 +164,63 @@ struct FITtest {
       registry.add("All/ZDC/ZNCamp", "ZNC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "All/ZDC/ZNACCorr",
-          "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/ZDC/ZNACCorr",
+        "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add("All/ZDC/ZPAamp", "ZPA Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("All/ZDC/ZPCamp", "ZPC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "All/ZDC/ZPACCorr",
-          "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/ZDC/ZPACCorr",
+        "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add("All/ZDC/ZEM1amp", "ZEM1 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("All/ZDC/ZEM2amp", "ZEM2 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "All/ZDC/ZEM12Corr",
-          "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/ZDC/ZEM12Corr",
+        "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "All/ZDC/ZDCACorr",
-          "ZDC amp correlation; ZDCA Amplitude; ZDCC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/ZDC/ZDCACorr",
+        "ZDC amp correlation; ZDCA Amplitude; ZDCC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // Correlation plots
       registry.add(
-          "All/FV0T0ACorr",
-          "Correlation FV0 vs FT0; FT0A Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FV0T0ACorr",
+        "Correlation FV0 vs FT0; FT0A Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "All/FV0T0CCorr",
-          "Correlation FV0 vs FT0; FT0C Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FV0T0CCorr",
+        "Correlation FV0 vs FT0; FT0C Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "All/FT0DDACorr",
-          "Correlation FT0 vs FDD; FT0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FT0DDACorr",
+        "Correlation FT0 vs FDD; FT0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "All/FT0DDCCorr",
-          "Correlation FT0 vs FDD; FT0C Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FT0DDCCorr",
+        "Correlation FT0 vs FDD; FT0C Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "All/FT0AFDDC",
-          "Correlation FT0 vs FDD; FT0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FT0AFDDC",
+        "Correlation FT0 vs FDD; FT0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "All/FT0CFDDA",
-          "Correlation FT0 vs FDD; FT0C Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FT0CFDDA",
+        "Correlation FT0 vs FDD; FT0C Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "All/FV0AFDDA",
-          "Correlation FV0 vs FDD; FV0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FV0AFDDA",
+        "Correlation FV0 vs FDD; FV0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "All/FV0AFDDC",
-          "Correlation FV0 vs FDD; FV0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "All/FV0AFDDC",
+        "Correlation FV0 vs FDD; FV0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
     }
 
     if (context.mOptions.get<bool>("processHadronic")) {
@@ -294,9 +295,9 @@ struct FITtest {
                    "#FT0C Amplitude; FT0C Amplitude",
                    {HistType::kTH1F, {{2000, -0.5, 1999.5}}});
       registry.add(
-          "collHadronic/FT0/FT0ACCorr",
-          "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FT0/FT0ACCorr",
+        "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // FDD
       registry.add("collHadronic/FDD/hFDDAC",
@@ -309,9 +310,9 @@ struct FITtest {
                    "#FDDC Amplitude; FDDC Amplitude",
                    {HistType::kTH1F, {{2000, -0.5, 1999.5}}});
       registry.add(
-          "collHadronic/FDD/FDDACCorr",
-          "#FDD amp correlation;FDDA Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FDD/FDDACCorr",
+        "#FDD amp correlation;FDDA Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // ZDC
       registry.add("collHadronic/ZDC/ZNAamp", "ZNA Amplitude",
@@ -319,60 +320,60 @@ struct FITtest {
       registry.add("collHadronic/ZDC/ZNCamp", "ZNC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "collHadronic/ZDC/ZNACCorr",
-          "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/ZDC/ZNACCorr",
+        "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add("collHadronic/ZDC/ZPAamp", "ZPA Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("collHadronic/ZDC/ZPCamp", "ZPC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "collHadronic/ZDC/ZPACCorr",
-          "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/ZDC/ZPACCorr",
+        "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       registry.add("collHadronic/ZDC/ZEM1amp", "ZEM1 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("collHadronic/ZDC/ZEM2amp", "ZEM2 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "collHadronic/ZDC/ZEM12Corr",
-          "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/ZDC/ZEM12Corr",
+        "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // Correlation plots
       registry.add(
-          "collHadronic/FV0T0ACorr",
-          "Correlation FV0 vs FT0 A side; FT0A Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FV0T0ACorr",
+        "Correlation FV0 vs FT0 A side; FT0A Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "collHadronic/FV0T0CCorr",
-          "Correlation FV0 vs FT0 C side; FT0C Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FV0T0CCorr",
+        "Correlation FV0 vs FT0 C side; FT0C Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "collHadronic/FT0DDACorr",
-          "Correlation FT0 vs FDD A side; FT0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FT0DDACorr",
+        "Correlation FT0 vs FDD A side; FT0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "collHadronic/FT0DDCCorr",
-          "Correlation FT0 vs FDD C side; FT0C Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FT0DDCCorr",
+        "Correlation FT0 vs FDD C side; FT0C Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "collHadronic/FT0AFDDC",
-          "Correlation FT0 vs FDD AC side; FT0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FT0AFDDC",
+        "Correlation FT0 vs FDD AC side; FT0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "collHadronic/FT0CFDDA",
-          "Correlation FT0 vs FDD CA side; FT0C Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FT0CFDDA",
+        "Correlation FT0 vs FDD CA side; FT0C Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "collHadronic/FV0AFDDA",
-          "Correlation FV0 vs FDD A side; FV0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FV0AFDDA",
+        "Correlation FV0 vs FDD A side; FV0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "collHadronic/FV0AFDDC",
-          "Correlation FV0 vs FDD C side; FV0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "collHadronic/FV0AFDDC",
+        "Correlation FV0 vs FDD C side; FV0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
     }
 
     if (context.mOptions.get<bool>("processInclusiveA")) {
@@ -447,9 +448,9 @@ struct FITtest {
                    "#FT0C Amplitude; FT0C Amplitude",
                    {HistType::kTH1F, {{2000, -0.5, 1999.5}}});
       registry.add(
-          "colInclusiveA/FT0/FT0ACCorr",
-          "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FT0/FT0ACCorr",
+        "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       // FDD
       registry.add("colInclusiveA/FDD/FDDAamp",
                    "#FDDA Amplitude; FDDA Amplitude",
@@ -461,9 +462,9 @@ struct FITtest {
                    "Time Correlation FDD; FDDA time (ns); FDDC time (ns)",
                    {HistType::kTH2F, {{500, -50.0, 50.0}, {500, -50.0, 50.0}}});
       registry.add(
-          "colInclusiveA/FDD/FDDACCorr",
-          "#FDD amp correlation; FDDA Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FDD/FDDACCorr",
+        "#FDD amp correlation; FDDA Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // ZDC
       registry.add("colInclusiveA/ZDC/ZNAamp", "ZNA Amplitude",
@@ -471,60 +472,60 @@ struct FITtest {
       registry.add("colInclusiveA/ZDC/ZNCamp", "ZNC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "colInclusiveA/ZDC/ZNACCorr",
-          "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/ZDC/ZNACCorr",
+        "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add("colInclusiveA/ZDC/ZPAamp", "ZPA Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("colInclusiveA/ZDC/ZPCamp", "ZPC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "colInclusiveA/ZDC/ZPACCorr",
-          "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/ZDC/ZPACCorr",
+        "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       registry.add("colInclusiveA/ZDC/ZEM1amp", "ZEM1 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("colInclusiveA/ZDC/ZEM2amp", "ZEM2 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "colInclusiveA/ZDC/ZEM12Corr",
-          "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/ZDC/ZEM12Corr",
+        "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // Correlation plots
       registry.add(
-          "colInclusiveA/FV0T0ACorr",
-          "Correlation FV0 vs FT0 A side; FT0A Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FV0T0ACorr",
+        "Correlation FV0 vs FT0 A side; FT0A Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveA/FV0T0CCorr",
-          "Correlation FV0 vs FT0 C side; FT0C Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FV0T0CCorr",
+        "Correlation FV0 vs FT0 C side; FT0C Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveA/FT0DDACorr",
-          "Correlation FT0 vs FDD A side; FT0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FT0DDACorr",
+        "Correlation FT0 vs FDD A side; FT0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveA/FT0DDCCorr",
-          "Correlation FT0 vs FDD C side; FT0C Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FT0DDCCorr",
+        "Correlation FT0 vs FDD C side; FT0C Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveA/FT0AFDDC",
-          "Correlation FT0 vs FDD AC side; FT0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FT0AFDDC",
+        "Correlation FT0 vs FDD AC side; FT0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveA/FT0CFDDA",
-          "Correlation FT0 vs FDD CA side; FT0C Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FT0CFDDA",
+        "Correlation FT0 vs FDD CA side; FT0C Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveA/FV0AFDDA",
-          "Correlation FV0 vs FDD A side; FV0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FV0AFDDA",
+        "Correlation FV0 vs FDD A side; FV0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveA/FV0AFDDC",
-          "Correlation FV0 vs FDD C side; FV0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveA/FV0AFDDC",
+        "Correlation FV0 vs FDD C side; FV0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
     }
 
     if (context.mOptions.get<bool>("processInclusiveC")) {
@@ -595,9 +596,9 @@ struct FITtest {
                    "#FT0C Amplitude; FT0C Amplitude",
                    {HistType::kTH1F, {{2000, -0.5, 1999.5}}});
       registry.add(
-          "colInclusiveC/FT0/FT0ACCorr",
-          "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FT0/FT0ACCorr",
+        "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // FDD
       registry.add("colInclusiveC/FDD/FDDAamp",
@@ -607,9 +608,9 @@ struct FITtest {
                    "#FDDC Amplitude; FDDC Amplitude",
                    {HistType::kTH1F, {{2000, -0.5, 1999.5}}});
       registry.add(
-          "colInclusiveC/FDD/FDDACCorr",
-          "#FDD amp correlation; FDDA Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FDD/FDDACCorr",
+        "#FDD amp correlation; FDDA Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // ZDC
       registry.add("colInclusiveC/ZDC/ZNAamp", "ZNA Amplitude",
@@ -617,60 +618,60 @@ struct FITtest {
       registry.add("colInclusiveC/ZDC/ZNCamp", "ZNC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "colInclusiveC/ZDC/ZNACCorr",
-          "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/ZDC/ZNACCorr",
+        "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add("colInclusiveC/ZDC/ZPAamp", "ZPA Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("colInclusiveC/ZDC/ZPCamp", "ZPC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "colInclusiveC/ZDC/ZPACCorr",
-          "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/ZDC/ZPACCorr",
+        "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       registry.add("colInclusiveC/ZDC/ZEM1amp", "ZEM1 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("colInclusiveC/ZDC/ZEM2amp", "ZEM2 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "colInclusiveC/ZDC/ZEM12Corr",
-          "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/ZDC/ZEM12Corr",
+        "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // Correlation plots
       registry.add(
-          "colInclusiveC/FV0T0ACorr",
-          "Correlation FV0 vs FT0 A side; FT0A Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FV0T0ACorr",
+        "Correlation FV0 vs FT0 A side; FT0A Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveC/FV0T0CCorr",
-          "Correlation FV0 vs FT0 C side; FT0C Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FV0T0CCorr",
+        "Correlation FV0 vs FT0 C side; FT0C Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveC/FT0DDACorr",
-          "Correlation FT0 vs FDD A side; FT0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FT0DDACorr",
+        "Correlation FT0 vs FDD A side; FT0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveC/FT0DDCCorr",
-          "Correlation FT0 vs FDD C side; FT0C Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FT0DDCCorr",
+        "Correlation FT0 vs FDD C side; FT0C Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveC/FT0AFDDC",
-          "Correlation FT0 vs FDD AC side; FT0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FT0AFDDC",
+        "Correlation FT0 vs FDD AC side; FT0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveC/FT0CFDDA",
-          "Correlation FT0 vs FDD CA side; FT0C Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FT0CFDDA",
+        "Correlation FT0 vs FDD CA side; FT0C Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveC/FV0AFDDA",
-          "Correlation FV0 vs FDD A side; FV0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FV0AFDDA",
+        "Correlation FV0 vs FDD A side; FV0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "colInclusiveC/FV0AFDDC",
-          "Correlation FV0 vs FDD C side; FV0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "colInclusiveC/FV0AFDDC",
+        "Correlation FV0 vs FDD C side; FV0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
     }
 
     if (context.mOptions.get<bool>("processExclusive")) {
@@ -740,14 +741,14 @@ struct FITtest {
       registry.add("exclusive/FT0/FT0Camp", "#FT0C Amplitude; FT0C Amplitude",
                    {HistType::kTH1F, {{2000, -0.5, 1999.5}}});
       registry.add(
-          "exclusive/FT0/FT0ACCorr",
-          "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FT0/FT0ACCorr",
+        "FT0 amp correlation; FT0A Amplitude; FT0C Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       // FDD
       registry.add(
-          "exclusive/FDD/FDDACCorr",
-          "#FDD amp correlation; FDDA Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FDD/FDDACCorr",
+        "#FDD amp correlation; FDDA Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // ZDC
       registry.add("exclusive/ZDC/ZNAamp", "ZNA Amplitude",
@@ -755,68 +756,69 @@ struct FITtest {
       registry.add("exclusive/ZDC/ZNCamp", "ZNC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "exclusive/ZDC/ZNACCorr",
-          "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/ZDC/ZNACCorr",
+        "ZDC amp correlation; ZNA Amplitude; ZNC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add("exclusive/ZDC/ZPAamp", "ZPA Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("exclusive/ZDC/ZPCamp", "ZPC Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "exclusive/ZDC/ZPACCorr",
-          "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/ZDC/ZPACCorr",
+        "ZDC amp correlation; ZPA Amplitude; ZPC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       registry.add("exclusive/ZDC/ZEM1amp", "ZEM1 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add("exclusive/ZDC/ZEM2amp", "ZEM2 Amplitude",
                    {HistType::kTH1F, {{2000, 0., 2000.}}});
       registry.add(
-          "exclusive/ZDC/ZEM12Corr",
-          "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/ZDC/ZEM12Corr",
+        "ZDC amp correlation; ZEM1 Amplitude; ZEM2 Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
 
       // Correlation plots
       registry.add(
-          "exclusive/FV0T0ACorr",
-          "Correlation FV0 vs FT0 A side; FT0A Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FV0T0ACorr",
+        "Correlation FV0 vs FT0 A side; FT0A Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "exclusive/FV0T0CCorr",
-          "Correlation FV0 vs FT0 C side; FT0C Amplitude; FV0A Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FV0T0CCorr",
+        "Correlation FV0 vs FT0 C side; FT0C Amplitude; FV0A Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "exclusive/FT0DDACorr",
-          "Correlation FT0 vs FDD A side; FT0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FT0DDACorr",
+        "Correlation FT0 vs FDD A side; FT0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "exclusive/FT0DDCCorr",
-          "Correlation FT0 vs FDD C side; FT0C Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FT0DDCCorr",
+        "Correlation FT0 vs FDD C side; FT0C Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "exclusive/FT0AFDDC",
-          "Correlation FT0 vs FDD AC side; FT0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FT0AFDDC",
+        "Correlation FT0 vs FDD AC side; FT0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "exclusive/FT0CFDDA",
-          "Correlation FT0 vs FDD CA side; FT0C Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FT0CFDDA",
+        "Correlation FT0 vs FDD CA side; FT0C Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "exclusive/FV0AFDDA",
-          "Correlation FV0 vs FDD A side; FV0A Amplitude; FDDA Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FV0AFDDA",
+        "Correlation FV0 vs FDD A side; FV0A Amplitude; FDDA Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
       registry.add(
-          "exclusive/FV0AFDDC",
-          "Correlation FV0 vs FDD C side; FV0A Amplitude; FDDC Amplitude",
-          {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
+        "exclusive/FV0AFDDC",
+        "Correlation FV0 vs FDD C side; FV0A Amplitude; FDDC Amplitude",
+        {HistType::kTH2F, {{2000, -4.5, 1995.5}, {2000, -4.5, 1995.5}}});
     }
   }
 
   //...............................................................................................................
-  void processMain(CC const &collision, BCs const &bct0s, TCs const &tracks,
-                   aod::FT0s const &ft0s, aod::FV0As const &fv0as,
-                   aod::FDDs const &fdds, aod::Zdcs &zdcs,
-                   aod::V0s const &v0s) {
+  void processMain(CC const& collision, BCs const& bct0s, TCs const& tracks,
+                   aod::FT0s const& ft0s, aod::FV0As const& fv0as,
+                   aod::FDDs const& fdds, aod::Zdcs& zdcs,
+                   aod::V0s const& v0s)
+  {
     uint64_t bcnum = 0;
     LOGF(debug, "<FITtest. Collision %d", collision.globalIndex());
     float totAmplitudeA = 0;
@@ -846,181 +848,185 @@ struct FITtest {
 
     registry.get<TH1>(HIST("All/Stat"))->Fill(1.);
 
-    //for (const auto &bc : bct0s) {
-      totAmplitudeA = 0;
-      totAmplitudeC = 0;
-      totalAmplitudefv0 = 0;
-      totAmpFddA = 0;
-      totAmpFddC = 0;
-      if (bc.has_foundFT0()) {
+    // for (const auto &bc : bct0s) {
+    totAmplitudeA = 0;
+    totAmplitudeC = 0;
+    totalAmplitudefv0 = 0;
+    totAmpFddA = 0;
+    totAmpFddC = 0;
+    if (bc.has_foundFT0()) {
 
-        auto ft0 = bc.foundFT0();
-        // side A
-        for (size_t ind = 0; ind < ft0.channelA().size(); ind++) {
-          registry.get<TH2>(HIST("All/FT0/FT0A"))
-              ->Fill((ft0.channelA())[ind], (ft0.amplitudeA())[ind]);
-        }
-
-        // side C
-        for (size_t ind = 0; ind < ft0.channelC().size(); ind++) {
-          registry.get<TH2>(HIST("All/FT0/FT0C"))
-              ->Fill((ft0.channelC())[ind], (ft0.amplitudeC())[ind]);
-        }
-
-        for (auto ampa : ft0.amplitudeA()) {
-          totAmplitudeA += ampa;
-        }
-
-        for (auto ampc : ft0.amplitudeC()) {
-          totAmplitudeC += ampc;
-        }
-
-        registry.get<TH1>(HIST("All/Stat"))->Fill(2.);
-        registry.get<TH2>(HIST("All/FT0/hT0AC"))
-            ->Fill(ft0.timeA(), ft0.timeC());
+      auto ft0 = bc.foundFT0();
+      // side A
+      for (size_t ind = 0; ind < ft0.channelA().size(); ind++) {
+        registry.get<TH2>(HIST("All/FT0/FT0A"))
+          ->Fill((ft0.channelA())[ind], (ft0.amplitudeA())[ind]);
       }
 
-      // FV0 information
-      if (bc.has_foundFV0()) {
-        auto fv0 = bc.foundFV0();
-        registry.get<TH1>(HIST("All/Stat"))->Fill(3.);
-        registry.get<TH1>(HIST("All/FV0/hV0A"))->Fill(fv0.time());
-
-        for (size_t ind = 0; ind < fv0.channel().size(); ind++) {
-          registry.get<TH2>(HIST("All/FV0/FV0A"))
-              ->Fill((fv0.channel())[ind], (fv0.amplitude())[ind]);
-        }
-
-        for (auto ampfv0a : fv0.amplitude()) {
-          totalAmplitudefv0 += ampfv0a;
-        }
+      // side C
+      for (size_t ind = 0; ind < ft0.channelC().size(); ind++) {
+        registry.get<TH2>(HIST("All/FT0/FT0C"))
+          ->Fill((ft0.channelC())[ind], (ft0.amplitudeC())[ind]);
       }
 
-      // FDD information
-      if (bc.has_foundFDD()) {
-        auto fdd = bc.foundFDD();
-        registry.get<TH1>(HIST("All/Stat"))->Fill(4.);
-        registry.get<TH2>(HIST("All/FDD/hFDDAC"))
-            ->Fill(fdd.timeA(), fdd.timeC());
-
-        // side A
-        for (auto ind = 0; ind < 8; ind++) {
-          registry.get<TH2>(HIST("All/FDD/FDDA"))
-              ->Fill(ind, (fdd.chargeA())[ind]);
-        }
-
-        // side C
-        for (auto ind = 0; ind < 8; ind++) {
-          registry.get<TH2>(HIST("All/FDD/FDDC"))
-              ->Fill(ind, (fdd.chargeC())[ind]);
-        }
-
-        for (auto ampfdd : fdd.chargeA()) {
-          totAmpFddA += ampfdd;
-        }
-
-        for (auto ampfddc : fdd.chargeC()) {
-          totAmpFddC += ampfddc;
-        }
+      for (auto ampa : ft0.amplitudeA()) {
+        totAmplitudeA += ampa;
       }
 
-      // ZDC information
-      if (bc.has_foundZDC()) {
-        // if(collision.has_foundZDC()){
-        // auto zdc = collision.foundZDC();
-        auto zdc = bc.foundZDC();
-        registry.get<TH2>(HIST("All/ZDC/hZNAC"))
-            ->Fill(zdc.timeZNA(), zdc.timeZNC());
-        registry.get<TH2>(HIST("All/ZDC/hZPAC"))
-            ->Fill(zdc.timeZPA(), zdc.timeZPC());
-        registry.get<TH2>(HIST("All/ZDC/hZEM12"))
-            ->Fill(zdc.timeZEM1(), zdc.timeZEM2());
-
-        totAmpZNA = zdc.amplitudeZNA();
-        totAmpZNC = zdc.amplitudeZNC();
-        totAmpZPA = zdc.amplitudeZPA();
-        totAmpZPC = zdc.amplitudeZPC();
-        totAmpZEM1 = zdc.amplitudeZEM1();
-        totAmpZEM2 = zdc.amplitudeZEM2();
+      for (auto ampc : ft0.amplitudeC()) {
+        totAmplitudeC += ampc;
       }
 
-      auto FITA =
-          totalAmplitudefv0 > 0. || totAmplitudeA > 0. || totAmpFddA > 0.;
-      auto FITC = totAmplitudeC > 0. || totAmpFddC > 0.;
+      registry.get<TH1>(HIST("All/Stat"))->Fill(2.);
+      registry.get<TH2>(HIST("All/FT0/hT0AC"))
+        ->Fill(ft0.timeA(), ft0.timeC());
+    }
 
-      auto ZDCA = (totAmpZNA < 1. || totAmpZPA < 1. || totAmpZEM1 < 1. ||
-                   totAmpZEM2 < 1.);
-      auto ZDCC = (totAmpZNC < 1. || totAmpZPC < 1.);
+    // FV0 information
+    if (bc.has_foundFV0()) {
+      auto fv0 = bc.foundFV0();
+      registry.get<TH1>(HIST("All/Stat"))->Fill(3.);
+      registry.get<TH1>(HIST("All/FV0/hV0A"))->Fill(fv0.time());
 
-      registry.get<TH1>(HIST("All/RelativeBC"))->Fill(bcnum, 1.);
-      registry.get<TH1>(HIST("All/FITAamp"))->Fill(FITA);
-      registry.get<TH1>(HIST("All/FITCamp"))->Fill(FITC);
-      registry.get<TH2>(HIST("All/FITACCorr"))->Fill(FITA, FITC);
-
-      if (totAmplitudeA < 5. || totAmplitudeC < 5. || totalAmplitudefv0 < 5. ||
-          totAmpFddA < 5 || totAmpFddA < 5) {
-
-        registry.get<TH1>(HIST("All/FV0/FV0Amp"))->Fill(totalAmplitudefv0);
-        registry.get<TH1>(HIST("All/FT0/FT0Aamp"))->Fill(totAmplitudeA);
-        registry.get<TH1>(HIST("All/FT0/FT0Camp"))->Fill(totAmplitudeC);
-        registry.get<TH2>(HIST("All/FT0/FT0ACCorr"))
-            ->Fill(totAmplitudeA, totAmplitudeC);
-        registry.get<TH1>(HIST("All/FDD/FDDAamp"))->Fill(totAmpFddA);
-        registry.get<TH1>(HIST("All/FDD/FDDCamp"))->Fill(totAmpFddC);
-        registry.get<TH2>(HIST("All/FDD/FDDACCorr"))
-            ->Fill(totAmpFddA, totAmpFddC);
-
-        // Correlation FV0 vs FT0
-        registry.get<TH2>(HIST("All/FV0T0ACorr"))
-            ->Fill(totAmplitudeA, totalAmplitudefv0);
-        registry.get<TH2>(HIST("All/FV0T0CCorr"))
-            ->Fill(totAmplitudeC, totalAmplitudefv0);
-
-        // Correlation FDD vs FT0
-        registry.get<TH2>(HIST("All/FT0DDACorr"))
-            ->Fill(totAmplitudeA, totAmpFddA);
-        registry.get<TH2>(HIST("All/FT0DDCCorr"))
-            ->Fill(totAmplitudeC, totAmpFddC);
-        registry.get<TH2>(HIST("All/FT0CFDDA"))
-            ->Fill(totAmplitudeC, totAmpFddA);
-        registry.get<TH2>(HIST("All/FT0AFDDC"))
-            ->Fill(totAmplitudeA, totAmpFddC);
-
-        // Correlation FDD vs FV0
-        registry.get<TH2>(HIST("All/FV0AFDDA"))
-            ->Fill(totalAmplitudefv0, totAmpFddA);
-        registry.get<TH2>(HIST("All/FV0AFDDC"))
-            ->Fill(totalAmplitudefv0, totAmpFddC);
-
-        // if(ZDCA && ZDCC){
-        { registry.get<TH1>(HIST("All/ZDC/ZNAamp"))->Fill(totAmpZNA); }
-        { registry.get<TH1>(HIST("All/ZDC/ZNCamp"))->Fill(totAmpZNC); }
-        registry.get<TH2>(HIST("All/ZDC/ZNACCorr"))->Fill(totAmpZNA, totAmpZNC);
-        registry.get<TH2>(HIST("All/ZDC/ZDCACorr"))->Fill(ZDCA, ZDCC);
-
-        if (totAmpZNA < 45.)
-          registry.get<TH1>(HIST("All/ZDC/ZPAamp"))->Fill(totAmpZNA);
-        if (totAmpZNC < 45.)
-          registry.get<TH1>(HIST("All/ZDC/ZPCamp"))->Fill(totAmpZNC);
-        if (totAmpZNA < 45. || totAmpZNC < 45.) {
-          registry.get<TH2>(HIST("All/ZDC/ZPACCorr"))
-              ->Fill(totAmpZNA, totAmpZNC);
-        }
-
-        if (totAmpZNA > 45.)
-          registry.get<TH1>(HIST("All/ZDC/ZEM1amp"))->Fill(totAmpZNA);
-        if (totAmpZNC > 45.)
-          registry.get<TH1>(HIST("All/ZDC/ZEM2amp"))->Fill(totAmpZNC);
-        if (totAmpZNA > 45. || totAmpZNC > 45.)
-          registry.get<TH2>(HIST("All/ZDC/ZEM12Corr"))
-              ->Fill(totAmpZNA, totAmpZNC);
+      for (size_t ind = 0; ind < fv0.channel().size(); ind++) {
+        registry.get<TH2>(HIST("All/FV0/FV0A"))
+          ->Fill((fv0.channel())[ind], (fv0.amplitude())[ind]);
       }
+
+      for (auto ampfv0a : fv0.amplitude()) {
+        totalAmplitudefv0 += ampfv0a;
+      }
+    }
+
+    // FDD information
+    if (bc.has_foundFDD()) {
+      auto fdd = bc.foundFDD();
+      registry.get<TH1>(HIST("All/Stat"))->Fill(4.);
+      registry.get<TH2>(HIST("All/FDD/hFDDAC"))
+        ->Fill(fdd.timeA(), fdd.timeC());
+
+      // side A
+      for (auto ind = 0; ind < 8; ind++) {
+        registry.get<TH2>(HIST("All/FDD/FDDA"))
+          ->Fill(ind, (fdd.chargeA())[ind]);
+      }
+
+      // side C
+      for (auto ind = 0; ind < 8; ind++) {
+        registry.get<TH2>(HIST("All/FDD/FDDC"))
+          ->Fill(ind, (fdd.chargeC())[ind]);
+      }
+
+      for (auto ampfdd : fdd.chargeA()) {
+        totAmpFddA += ampfdd;
+      }
+
+      for (auto ampfddc : fdd.chargeC()) {
+        totAmpFddC += ampfddc;
+      }
+    }
+
+    // ZDC information
+    if (bc.has_foundZDC()) {
+      // if(collision.has_foundZDC()){
+      // auto zdc = collision.foundZDC();
+      auto zdc = bc.foundZDC();
+      registry.get<TH2>(HIST("All/ZDC/hZNAC"))
+        ->Fill(zdc.timeZNA(), zdc.timeZNC());
+      registry.get<TH2>(HIST("All/ZDC/hZPAC"))
+        ->Fill(zdc.timeZPA(), zdc.timeZPC());
+      registry.get<TH2>(HIST("All/ZDC/hZEM12"))
+        ->Fill(zdc.timeZEM1(), zdc.timeZEM2());
+
+      totAmpZNA = zdc.amplitudeZNA();
+      totAmpZNC = zdc.amplitudeZNC();
+      totAmpZPA = zdc.amplitudeZPA();
+      totAmpZPC = zdc.amplitudeZPC();
+      totAmpZEM1 = zdc.amplitudeZEM1();
+      totAmpZEM2 = zdc.amplitudeZEM2();
+    }
+
+    auto FITA =
+      totalAmplitudefv0 > 0. || totAmplitudeA > 0. || totAmpFddA > 0.;
+    auto FITC = totAmplitudeC > 0. || totAmpFddC > 0.;
+
+    auto ZDCA = (totAmpZNA < 1. || totAmpZPA < 1. || totAmpZEM1 < 1. ||
+                 totAmpZEM2 < 1.);
+    auto ZDCC = (totAmpZNC < 1. || totAmpZPC < 1.);
+
+    registry.get<TH1>(HIST("All/RelativeBC"))->Fill(bcnum, 1.);
+    registry.get<TH1>(HIST("All/FITAamp"))->Fill(FITA);
+    registry.get<TH1>(HIST("All/FITCamp"))->Fill(FITC);
+    registry.get<TH2>(HIST("All/FITACCorr"))->Fill(FITA, FITC);
+
+    if (totAmplitudeA < 5. || totAmplitudeC < 5. || totalAmplitudefv0 < 5. ||
+        totAmpFddA < 5 || totAmpFddA < 5) {
+
+      registry.get<TH1>(HIST("All/FV0/FV0Amp"))->Fill(totalAmplitudefv0);
+      registry.get<TH1>(HIST("All/FT0/FT0Aamp"))->Fill(totAmplitudeA);
+      registry.get<TH1>(HIST("All/FT0/FT0Camp"))->Fill(totAmplitudeC);
+      registry.get<TH2>(HIST("All/FT0/FT0ACCorr"))
+        ->Fill(totAmplitudeA, totAmplitudeC);
+      registry.get<TH1>(HIST("All/FDD/FDDAamp"))->Fill(totAmpFddA);
+      registry.get<TH1>(HIST("All/FDD/FDDCamp"))->Fill(totAmpFddC);
+      registry.get<TH2>(HIST("All/FDD/FDDACCorr"))
+        ->Fill(totAmpFddA, totAmpFddC);
+
+      // Correlation FV0 vs FT0
+      registry.get<TH2>(HIST("All/FV0T0ACorr"))
+        ->Fill(totAmplitudeA, totalAmplitudefv0);
+      registry.get<TH2>(HIST("All/FV0T0CCorr"))
+        ->Fill(totAmplitudeC, totalAmplitudefv0);
+
+      // Correlation FDD vs FT0
+      registry.get<TH2>(HIST("All/FT0DDACorr"))
+        ->Fill(totAmplitudeA, totAmpFddA);
+      registry.get<TH2>(HIST("All/FT0DDCCorr"))
+        ->Fill(totAmplitudeC, totAmpFddC);
+      registry.get<TH2>(HIST("All/FT0CFDDA"))
+        ->Fill(totAmplitudeC, totAmpFddA);
+      registry.get<TH2>(HIST("All/FT0AFDDC"))
+        ->Fill(totAmplitudeA, totAmpFddC);
+
+      // Correlation FDD vs FV0
+      registry.get<TH2>(HIST("All/FV0AFDDA"))
+        ->Fill(totalAmplitudefv0, totAmpFddA);
+      registry.get<TH2>(HIST("All/FV0AFDDC"))
+        ->Fill(totalAmplitudefv0, totAmpFddC);
+
+      // if(ZDCA && ZDCC){
+      {
+        registry.get<TH1>(HIST("All/ZDC/ZNAamp"))->Fill(totAmpZNA);
+      }
+      {
+        registry.get<TH1>(HIST("All/ZDC/ZNCamp"))->Fill(totAmpZNC);
+      }
+      registry.get<TH2>(HIST("All/ZDC/ZNACCorr"))->Fill(totAmpZNA, totAmpZNC);
+      registry.get<TH2>(HIST("All/ZDC/ZDCACorr"))->Fill(ZDCA, ZDCC);
+
+      if (totAmpZNA < 45.)
+        registry.get<TH1>(HIST("All/ZDC/ZPAamp"))->Fill(totAmpZNA);
+      if (totAmpZNC < 45.)
+        registry.get<TH1>(HIST("All/ZDC/ZPCamp"))->Fill(totAmpZNC);
+      if (totAmpZNA < 45. || totAmpZNC < 45.) {
+        registry.get<TH2>(HIST("All/ZDC/ZPACCorr"))
+          ->Fill(totAmpZNA, totAmpZNC);
+      }
+
+      if (totAmpZNA > 45.)
+        registry.get<TH1>(HIST("All/ZDC/ZEM1amp"))->Fill(totAmpZNA);
+      if (totAmpZNC > 45.)
+        registry.get<TH1>(HIST("All/ZDC/ZEM2amp"))->Fill(totAmpZNC);
+      if (totAmpZNA > 45. || totAmpZNC > 45.)
+        registry.get<TH2>(HIST("All/ZDC/ZEM12Corr"))
+          ->Fill(totAmpZNA, totAmpZNC);
+    }
     //} // bc loop
 
     // PV contributors
     int nPVcont = 0;
     int nCount = 0;
-    for (auto const &trk : tracks) {
+    for (auto const& trk : tracks) {
       if (trk.eta() > -1.5 && trk.eta() < 1.5) {
         if (trk.isPVContributor()) {
           nPVcont++;
@@ -1030,11 +1036,11 @@ struct FITtest {
         nCount++;
         registry.get<TH2>(HIST("All/etapt"))->Fill(trk.eta(), trk.pt(), 1.);
         registry.get<TH2>(HIST("All/dEdxTPC"))
-            ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
+          ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
 
         if (trk.hasTOF()) {
           registry.get<TH2>(HIST("All/dEdxTOF"))
-              ->Fill(trk.p() / trk.sign(), trk.beta());
+            ->Fill(trk.p() / trk.sign(), trk.beta());
         }
       }
     } // track loop
@@ -1050,10 +1056,11 @@ struct FITtest {
 
   PROCESS_SWITCH(FITtest, processMain, "Process Main", true);
   //...............................................................................................................
-  void processHadronic(CC const &collision, BCs const &bct0s, TCs const &tracks,
-                       aod::FT0s const &ft0s, aod::FV0As const &fv0as,
-                       aod::FDDs const &fdds, aod::Zdcs &zdcs,
-                       aod::V0s const &v0s) {
+  void processHadronic(CC const& collision, BCs const& bct0s, TCs const& tracks,
+                       aod::FT0s const& ft0s, aod::FV0As const& fv0as,
+                       aod::FDDs const& fdds, aod::Zdcs& zdcs,
+                       aod::V0s const& v0s)
+  {
     LOGF(debug, "<FITtest. Collision %d", collision.globalIndex());
 
     float totAmplitudeA = 0;
@@ -1088,7 +1095,7 @@ struct FITtest {
     // get BCrange to test for FIT signals
     bool isDGcandidate = true;
     auto bcSlice = udhelpers::compatibleBCs(collision, diffCuts.NDtcoll(), bct0s, diffCuts.minNBCs());
-    for (auto const &bc : bcSlice) {
+    for (auto const& bc : bcSlice) {
       if (udhelpers::FITveto(bc, diffCuts)) {
         isDGcandidate = false;
         break;
@@ -1108,7 +1115,7 @@ struct FITtest {
         totAmplitudeC += ampc;
       }
       registry.get<TH2>(HIST("collHadronic/FT0/hT0AC"))
-          ->Fill(ft0.timeA(), ft0.timeC());
+        ->Fill(ft0.timeA(), ft0.timeC());
 
     } else {
       if (!collbc.has_foundFT0()) {
@@ -1138,7 +1145,7 @@ struct FITtest {
       auto fdd = collbc.foundFDD();
       registry.get<TH1>(HIST("collHadronic/Stat"))->Fill(5.);
       registry.get<TH2>(HIST("collHadronic/FDD/hFDDAC"))
-          ->Fill(fdd.timeA(), fdd.timeC());
+        ->Fill(fdd.timeA(), fdd.timeC());
 
       for (auto ampfdd : fdd.chargeA()) {
         totAmpFddA += ampfdd;
@@ -1154,8 +1161,8 @@ struct FITtest {
     } // fdd
 
     // ZDC information
-    if(collbc.has_foundZDC()){
-    //for (const auto &zdc : zdcs) {
+    if (collbc.has_foundZDC()) {
+      // for (const auto &zdc : zdcs) {
       auto zdc = collbc.foundZDC();
       totAmpZNA = zdc.amplitudeZNA();
       totAmpZNC = zdc.amplitudeZNC();
@@ -1177,42 +1184,42 @@ struct FITtest {
       registry.get<TH1>(HIST("collHadronic/RelBC"))->Fill(bcnum, 1.);
 
       registry.get<TH1>(HIST("collHadronic/FV0/FV0Amp"))
-          ->Fill(totalAmplitudefv0);
+        ->Fill(totalAmplitudefv0);
       registry.get<TH1>(HIST("collHadronic/FT0/FT0Aamp"))->Fill(totAmplitudeA);
       registry.get<TH1>(HIST("collHadronic/FT0/FT0Camp"))->Fill(totAmplitudeC);
       registry.get<TH2>(HIST("collHadronic/FT0/FT0ACCorr"))
-          ->Fill(totAmplitudeA, totAmplitudeC);
+        ->Fill(totAmplitudeA, totAmplitudeC);
       registry.get<TH1>(HIST("collHadronic/FDD/FDDAamp"))->Fill(totAmpFddA);
       registry.get<TH1>(HIST("collHadronic/FDD/FDDCamp"))->Fill(totAmpFddC);
       registry.get<TH2>(HIST("collHadronic/FDD/FDDACCorr"))
-          ->Fill(totAmpFddA, totAmpFddC);
+        ->Fill(totAmpFddA, totAmpFddC);
 
       // Correlation FV0 vs FT0
       registry.get<TH2>(HIST("collHadronic/FV0T0ACorr"))
-          ->Fill(totAmplitudeA, totalAmplitudefv0);
+        ->Fill(totAmplitudeA, totalAmplitudefv0);
       registry.get<TH2>(HIST("collHadronic/FV0T0CCorr"))
-          ->Fill(totAmplitudeC, totalAmplitudefv0);
+        ->Fill(totAmplitudeC, totalAmplitudefv0);
 
       // Correlation FDD vs FT0
       registry.get<TH2>(HIST("collHadronic/FT0DDACorr"))
-          ->Fill(totAmplitudeA, totAmpFddA);
+        ->Fill(totAmplitudeA, totAmpFddA);
       registry.get<TH2>(HIST("collHadronic/FT0DDCCorr"))
-          ->Fill(totAmplitudeC, totAmpFddC);
+        ->Fill(totAmplitudeC, totAmpFddC);
       registry.get<TH2>(HIST("collHadronic/FT0CFDDA"))
-          ->Fill(totAmplitudeC, totAmpFddA);
+        ->Fill(totAmplitudeC, totAmpFddA);
       registry.get<TH2>(HIST("collHadronic/FT0AFDDC"))
-          ->Fill(totAmplitudeA, totAmpFddC);
+        ->Fill(totAmplitudeA, totAmpFddC);
 
       // Correlation FDD vs FV0
       registry.get<TH2>(HIST("collHadronic/FV0AFDDA"))
-          ->Fill(totalAmplitudefv0, totAmpFddA);
+        ->Fill(totalAmplitudefv0, totAmpFddA);
       registry.get<TH2>(HIST("collHadronic/FV0AFDDC"))
-          ->Fill(totalAmplitudefv0, totAmpFddC);
+        ->Fill(totalAmplitudefv0, totAmpFddC);
 
       // PV contributors
       int nPVcont = 0;
       int nCont = 0;
-      for (auto const &trk : tracks) {
+      for (auto const& trk : tracks) {
         if (trk.eta() > -1.5 && trk.eta() < 1.5) {
           if (trk.pt() < 10) {
             if (trk.isPVContributor()) {
@@ -1222,12 +1229,12 @@ struct FITtest {
             }
             nCont++;
             registry.get<TH2>(HIST("collHadronic/etapt"))
-                ->Fill(trk.eta(), trk.pt(), 1.);
+              ->Fill(trk.eta(), trk.pt(), 1.);
             registry.get<TH2>(HIST("collHadronic/dEdxTPC"))
-                ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
+              ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
             if (trk.hasTOF()) {
               registry.get<TH2>(HIST("collHadronic/dEdxTOF"))
-                  ->Fill(trk.p() / trk.sign(), trk.beta());
+                ->Fill(trk.p() / trk.sign(), trk.beta());
             }
           }
         }
@@ -1242,17 +1249,17 @@ struct FITtest {
       registry.get<TH1>(HIST("collHadronic/ZDC/ZNAamp"))->Fill(totAmpZNA);
       registry.get<TH1>(HIST("collHadronic/ZDC/ZNCamp"))->Fill(totAmpZNC);
       registry.get<TH2>(HIST("collHadronic/ZDC/ZNACCorr"))
-          ->Fill(totAmpZNA, totAmpZNC);
+        ->Fill(totAmpZNA, totAmpZNC);
 
       registry.get<TH1>(HIST("collHadronic/ZDC/ZPAamp"))->Fill(totAmpZPA);
       registry.get<TH1>(HIST("collHadronic/ZDC/ZPCamp"))->Fill(totAmpZPC);
       registry.get<TH2>(HIST("collHadronic/ZDC/ZPACCorr"))
-          ->Fill(totAmpZPA, totAmpZPC);
+        ->Fill(totAmpZPA, totAmpZPC);
 
       registry.get<TH1>(HIST("collHadronic/ZDC/ZEM1amp"))->Fill(totAmpZEM1);
       registry.get<TH1>(HIST("collHadronic/ZDC/ZEM2amp"))->Fill(totAmpZEM2);
       registry.get<TH2>(HIST("collHadronic/ZDC/ZEM12Corr"))
-          ->Fill(totAmpZEM1, totAmpZEM2);
+        ->Fill(totAmpZEM1, totAmpZEM2);
 
       // PV contributors
       /*  for (auto const& trk : tracks) {
@@ -1280,10 +1287,11 @@ struct FITtest {
   PROCESS_SWITCH(FITtest, processHadronic, "Process for hadroniclike events",
                  true);
   //...............................................................................................................
-  void processInclusiveA(CC const &collision, BCs const &bct0s,
-                         TCs const &tracks, aod::FT0s const &ft0s,
-                         aod::FV0As const &fv0as, aod::FDDs const &fdds,
-                         aod::Zdcs &zdcs, aod::V0s const &v0s) {
+  void processInclusiveA(CC const& collision, BCs const& bct0s,
+                         TCs const& tracks, aod::FT0s const& ft0s,
+                         aod::FV0As const& fv0as, aod::FDDs const& fdds,
+                         aod::Zdcs& zdcs, aod::V0s const& v0s)
+  {
     uint64_t bcnum = 0;
     float totAmplitudeA = 0;
     float totAmplitudeC = 0;
@@ -1326,7 +1334,7 @@ struct FITtest {
         totAmplitudeC += ampc;
       }
       registry.get<TH2>(HIST("colInclusiveA/FT0/hT0AC"))
-          ->Fill(ft0.timeA(), ft0.timeC());
+        ->Fill(ft0.timeA(), ft0.timeC());
 
     } else {
       if (!collision.has_foundFT0()) {
@@ -1356,7 +1364,7 @@ struct FITtest {
       auto fdd = collision.foundFDD();
       registry.get<TH1>(HIST("colInclusiveA/Stat"))->Fill(5.);
       registry.get<TH2>(HIST("colInclusiveA/FDD/hFDDAC"))
-          ->Fill(fdd.timeA(), fdd.timeC());
+        ->Fill(fdd.timeA(), fdd.timeC());
 
       for (auto ampfdd : fdd.chargeA()) {
         totAmpFddA += ampfdd;
@@ -1384,7 +1392,7 @@ struct FITtest {
     }
 
     auto FITA =
-        (totalAmplitudefv0 > 0. || totAmplitudeA > 0. || totAmpFddA > 0.);
+      (totalAmplitudefv0 > 0. || totAmplitudeA > 0. || totAmpFddA > 0.);
     auto FITC = (totAmplitudeC > 0. || totAmpFddC > 0.);
     auto ZDCA = (totAmpZNA > 2. || totAmpZPA > 2. || totAmpZEM1 > 2. ||
                  totAmpZEM2 > 2.);
@@ -1396,42 +1404,42 @@ struct FITtest {
     registry.get<TH1>(HIST("colInclusiveA/Stat"))->Fill(6.);
 
     registry.get<TH1>(HIST("colInclusiveA/FV0/FV0Amp"))
-        ->Fill(totalAmplitudefv0);
+      ->Fill(totalAmplitudefv0);
     registry.get<TH1>(HIST("colInclusiveA/FT0/FT0Aamp"))->Fill(totAmplitudeA);
     registry.get<TH1>(HIST("colInclusiveA/FT0/FT0Camp"))->Fill(totAmplitudeC);
     registry.get<TH2>(HIST("colInclusiveA/FT0/FT0ACCorr"))
-        ->Fill(totAmplitudeA, totAmplitudeC);
+      ->Fill(totAmplitudeA, totAmplitudeC);
     registry.get<TH2>(HIST("colInclusiveA/FDD/FDDACCorr"))
-        ->Fill(totAmpFddA, totAmpFddC);
+      ->Fill(totAmpFddA, totAmpFddC);
     registry.get<TH1>(HIST("colInclusiveA/FDD/FDDAamp"))->Fill(totAmpFddA);
     registry.get<TH1>(HIST("colInclusiveA/FDD/FDDCamp"))->Fill(totAmpFddC);
 
     // Correlation FV0 vs FT0
     registry.get<TH2>(HIST("colInclusiveA/FV0T0ACorr"))
-        ->Fill(totAmplitudeA, totalAmplitudefv0);
+      ->Fill(totAmplitudeA, totalAmplitudefv0);
     registry.get<TH2>(HIST("colInclusiveA/FV0T0CCorr"))
-        ->Fill(totAmplitudeC, totalAmplitudefv0);
+      ->Fill(totAmplitudeC, totalAmplitudefv0);
 
     // Correlation FDD vs FT0
     registry.get<TH2>(HIST("colInclusiveA/FT0DDACorr"))
-        ->Fill(totAmplitudeA, totAmpFddA);
+      ->Fill(totAmplitudeA, totAmpFddA);
     registry.get<TH2>(HIST("colInclusiveA/FT0DDCCorr"))
-        ->Fill(totAmplitudeC, totAmpFddC);
+      ->Fill(totAmplitudeC, totAmpFddC);
     registry.get<TH2>(HIST("colInclusiveA/FT0CFDDA"))
-        ->Fill(totAmplitudeC, totAmpFddA);
+      ->Fill(totAmplitudeC, totAmpFddA);
     registry.get<TH2>(HIST("colInclusiveA/FT0AFDDC"))
-        ->Fill(totAmplitudeA, totAmpFddC);
+      ->Fill(totAmplitudeA, totAmpFddC);
 
     // Correlation FDD vs FV0
     registry.get<TH2>(HIST("colInclusiveA/FV0AFDDA"))
-        ->Fill(totalAmplitudefv0, totAmpFddA);
+      ->Fill(totalAmplitudefv0, totAmpFddA);
     registry.get<TH2>(HIST("colInclusiveA/FV0AFDDC"))
-        ->Fill(totalAmplitudefv0, totAmpFddC);
+      ->Fill(totalAmplitudefv0, totAmpFddC);
 
     // PV contributors
     int nPVcont = 0;
     int ntrks = 0;
-    for (auto const &trk : tracks) {
+    for (auto const& trk : tracks) {
       if (trk.eta() > -1.5 && trk.eta() < 1.5) {
         if (trk.pt() < 10) {
           if (trk.isPVContributor()) {
@@ -1442,12 +1450,12 @@ struct FITtest {
 
           ntrks++;
           registry.get<TH2>(HIST("colInclusiveA/etapt"))
-              ->Fill(trk.eta(), trk.pt(), 1.);
+            ->Fill(trk.eta(), trk.pt(), 1.);
           registry.get<TH2>(HIST("colInclusiveA/dEdxTPC"))
-              ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
+            ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
           if (trk.hasTOF()) {
             registry.get<TH2>(HIST("colInclusiveA/dEdxTOF"))
-                ->Fill(trk.p() / trk.sign(), trk.beta());
+              ->Fill(trk.p() / trk.sign(), trk.beta());
           }
         }
       }
@@ -1462,19 +1470,19 @@ struct FITtest {
     registry.get<TH1>(HIST("colInclusiveA/ZDC/ZNAamp"))->Fill(totAmpZNA);
     registry.get<TH1>(HIST("colInclusiveA/ZDC/ZNCamp"))->Fill(totAmpZNC);
     registry.get<TH2>(HIST("colInclusiveA/ZDC/ZNACCorr"))
-        ->Fill(totAmpZNA, totAmpZNC);
+      ->Fill(totAmpZNA, totAmpZNC);
 
     registry.get<TH1>(HIST("colInclusiveA/ZDC/ZPAamp"))->Fill(totAmpZPA);
     registry.get<TH1>(HIST("colInclusiveA/ZDC/ZPCamp"))->Fill(totAmpZPC);
     registry.get<TH2>(HIST("colInclusiveA/ZDC/ZPACCorr"))
-        ->Fill(totAmpZPA, totAmpZPC);
+      ->Fill(totAmpZPA, totAmpZPC);
 
     registry.get<TH1>(HIST("colInclusiveA/ZDC/ZEM1amp"))->Fill(totAmpZEM1);
     registry.get<TH1>(HIST("colInclusiveA/ZDC/ZEM2amp"))->Fill(totAmpZEM2);
     registry.get<TH2>(HIST("colInclusiveA/ZDC/ZEM12Corr"))
-        ->Fill(totAmpZEM1, totAmpZEM2);
+      ->Fill(totAmpZEM1, totAmpZEM2);
 
-    for (auto const &trk : tracks) {
+    for (auto const& trk : tracks) {
       if (trk.eta() > -1.5 && trk.eta() < 1.5) {
         if (trk.pt() < 10) {
           if (trk.isPVContributor()) {
@@ -1482,12 +1490,12 @@ struct FITtest {
             registry.get<TH1>(HIST("colInclusiveA/trkptZDC"))->Fill(trk.pt());
           }
           registry.get<TH2>(HIST("colInclusiveA/etaptZDC"))
-              ->Fill(trk.eta(), trk.pt(), 1.);
+            ->Fill(trk.eta(), trk.pt(), 1.);
           registry.get<TH2>(HIST("colInclusiveA/dEdxTPCZDC"))
-              ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
+            ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
           if (trk.hasTOF()) {
             registry.get<TH2>(HIST("colInclusiveA/dEdxTOFZDC"))
-                ->Fill(trk.p() / trk.sign(), trk.beta());
+              ->Fill(trk.p() / trk.sign(), trk.beta());
           }
         }
       }
@@ -1500,10 +1508,11 @@ struct FITtest {
   PROCESS_SWITCH(FITtest, processInclusiveA, "Process Inclusive veto A side",
                  true);
   //..................................................................................................................................
-  void processInclusiveC(CC const &collision, BCs const &bct0s,
-                         TCs const &tracks, aod::FT0s const &ft0s,
-                         aod::FV0As const &fv0as, aod::FDDs const &fdds,
-                         aod::Zdcs &zdcs, aod::V0s const &v0s) {
+  void processInclusiveC(CC const& collision, BCs const& bct0s,
+                         TCs const& tracks, aod::FT0s const& ft0s,
+                         aod::FV0As const& fv0as, aod::FDDs const& fdds,
+                         aod::Zdcs& zdcs, aod::V0s const& v0s)
+  {
     uint64_t bcnum = 0;
     float totAmplitudeA = 0;
     float totAmplitudeC = 0;
@@ -1611,42 +1620,42 @@ struct FITtest {
     registry.get<TH1>(HIST("colInclusiveC/RelativeBC"))->Fill(bcnum, 1.);
 
     registry.get<TH1>(HIST("colInclusiveC/FV0/FV0Amp"))
-        ->Fill(totalAmplitudefv0);
+      ->Fill(totalAmplitudefv0);
     registry.get<TH1>(HIST("colInclusiveC/FT0/FT0Aamp"))->Fill(totAmplitudeA);
     registry.get<TH1>(HIST("colInclusiveC/FT0/FT0Camp"))->Fill(totAmplitudeC);
     registry.get<TH2>(HIST("colInclusiveC/FT0/FT0ACCorr"))
-        ->Fill(totAmplitudeA, totAmplitudeC);
+      ->Fill(totAmplitudeA, totAmplitudeC);
     registry.get<TH2>(HIST("colInclusiveC/FDD/FDDACCorr"))
-        ->Fill(totAmpFddA, totAmpFddC);
+      ->Fill(totAmpFddA, totAmpFddC);
     registry.get<TH1>(HIST("colInclusiveC/FDD/FDDAamp"))->Fill(totAmpFddA);
     registry.get<TH1>(HIST("colInclusiveC/FDD/FDDCamp"))->Fill(totAmpFddC);
 
     // Correlation FV0 vs FT0
     registry.get<TH2>(HIST("colInclusiveC/FV0T0ACorr"))
-        ->Fill(totAmplitudeA, totalAmplitudefv0);
+      ->Fill(totAmplitudeA, totalAmplitudefv0);
     registry.get<TH2>(HIST("colInclusiveC/FV0T0CCorr"))
-        ->Fill(totAmplitudeC, totalAmplitudefv0);
+      ->Fill(totAmplitudeC, totalAmplitudefv0);
 
     // Correlation FDD vs FT0
     registry.get<TH2>(HIST("colInclusiveC/FT0DDACorr"))
-        ->Fill(totAmplitudeA, totAmpFddA);
+      ->Fill(totAmplitudeA, totAmpFddA);
     registry.get<TH2>(HIST("colInclusiveC/FT0DDCCorr"))
-        ->Fill(totAmplitudeC, totAmpFddC);
+      ->Fill(totAmplitudeC, totAmpFddC);
     registry.get<TH2>(HIST("colInclusiveC/FT0CFDDA"))
-        ->Fill(totAmplitudeC, totAmpFddA);
+      ->Fill(totAmplitudeC, totAmpFddA);
     registry.get<TH2>(HIST("colInclusiveC/FT0AFDDC"))
-        ->Fill(totAmplitudeA, totAmpFddC);
+      ->Fill(totAmplitudeA, totAmpFddC);
 
     // Correlation FDD vs FV0
     registry.get<TH2>(HIST("colInclusiveC/FV0AFDDA"))
-        ->Fill(totalAmplitudefv0, totAmpFddA);
+      ->Fill(totalAmplitudefv0, totAmpFddA);
     registry.get<TH2>(HIST("colInclusiveC/FV0AFDDC"))
-        ->Fill(totalAmplitudefv0, totAmpFddC);
+      ->Fill(totalAmplitudefv0, totAmpFddC);
 
     // PV contributors
     int nPVcont = 0;
     int ntrks = 0;
-    for (auto const &trk : tracks) {
+    for (auto const& trk : tracks) {
       if (trk.eta() > -1.5 && trk.eta() < 1.5) {
         if (trk.pt() < 10) {
           if (trk.isPVContributor()) {
@@ -1656,12 +1665,12 @@ struct FITtest {
           }
           ntrks++;
           registry.get<TH2>(HIST("colInclusiveC/etapt"))
-              ->Fill(trk.eta(), trk.pt(), 1.);
+            ->Fill(trk.eta(), trk.pt(), 1.);
           registry.get<TH2>(HIST("colInclusiveC/dEdxTPC"))
-              ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
+            ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
           if (trk.hasTOF()) {
             registry.get<TH2>(HIST("colInclusiveC/dEdxTOF"))
-                ->Fill(trk.p() / trk.sign(), trk.beta());
+              ->Fill(trk.p() / trk.sign(), trk.beta());
           }
         }
       }
@@ -1676,19 +1685,19 @@ struct FITtest {
     registry.get<TH1>(HIST("colInclusiveC/ZDC/ZNAamp"))->Fill(totAmpZNA);
     registry.get<TH1>(HIST("colInclusiveC/ZDC/ZNCamp"))->Fill(totAmpZNC);
     registry.get<TH2>(HIST("colInclusiveC/ZDC/ZNACCorr"))
-        ->Fill(totAmpZNA, totAmpZNC);
+      ->Fill(totAmpZNA, totAmpZNC);
 
     registry.get<TH1>(HIST("colInclusiveC/ZDC/ZPAamp"))->Fill(totAmpZPA);
     registry.get<TH1>(HIST("colInclusiveC/ZDC/ZPCamp"))->Fill(totAmpZPC);
     registry.get<TH2>(HIST("colInclusiveC/ZDC/ZPACCorr"))
-        ->Fill(totAmpZPA, totAmpZPC);
+      ->Fill(totAmpZPA, totAmpZPC);
 
     registry.get<TH1>(HIST("colInclusiveC/ZDC/ZEM1amp"))->Fill(totAmpZEM1);
     registry.get<TH1>(HIST("colInclusiveC/ZDC/ZEM2amp"))->Fill(totAmpZEM2);
     registry.get<TH2>(HIST("colInclusiveC/ZDC/ZEM12Corr"))
-        ->Fill(totAmpZEM1, totAmpZEM2);
+      ->Fill(totAmpZEM1, totAmpZEM2);
 
-    for (auto const &trk : tracks) {
+    for (auto const& trk : tracks) {
       if (trk.eta() > -1.5 && trk.eta() < 1.5) {
         if (trk.pt() < 10) {
           if (trk.isPVContributor()) {
@@ -1696,12 +1705,12 @@ struct FITtest {
             registry.get<TH1>(HIST("colInclusiveC/trkptZDC"))->Fill(trk.pt());
           }
           registry.get<TH2>(HIST("colInclusiveC/etaptZDC"))
-              ->Fill(trk.eta(), trk.pt(), 1.);
+            ->Fill(trk.eta(), trk.pt(), 1.);
           registry.get<TH2>(HIST("colInclusiveC/dEdxTPCZDC"))
-              ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
+            ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
           if (trk.hasTOF()) {
             registry.get<TH2>(HIST("colInclusiveC/dEdxTOFZDC"))
-                ->Fill(trk.p() / trk.sign(), trk.beta());
+              ->Fill(trk.p() / trk.sign(), trk.beta());
           }
         }
       }
@@ -1714,10 +1723,11 @@ struct FITtest {
   PROCESS_SWITCH(FITtest, processInclusiveC, "Process Inclusive veto C side",
                  true);
   //..................................................................................................................................
-  void processExclusive(CC const &collision, BCs const &bct0s,
-                        TCs const &tracks, aod::FT0s const &ft0s,
-                        aod::FV0As const &fv0as, aod::FDDs const &fdds,
-                        aod::Zdcs &zdcs, aod::V0s const &v0s) {
+  void processExclusive(CC const& collision, BCs const& bct0s,
+                        TCs const& tracks, aod::FT0s const& ft0s,
+                        aod::FV0As const& fv0as, aod::FDDs const& fdds,
+                        aod::Zdcs& zdcs, aod::V0s const& v0s)
+  {
     float totAmplitudeA = 0;
     float totAmplitudeC = 0;
     float totalAmplitudefv0 = 0;
@@ -1745,7 +1755,7 @@ struct FITtest {
 
     registry.get<TH1>(HIST("exclusive/Stat"))->Fill(1.);
     registry.get<TH1>(HIST("exclusive/trkmultiplicity"))
-        ->Fill(tracks.size(), 1.);
+      ->Fill(tracks.size(), 1.);
 
     if (collision.has_foundFT0()) {
 
@@ -1822,34 +1832,34 @@ struct FITtest {
       registry.get<TH1>(HIST("exclusive/FT0/FT0Aamp"))->Fill(totAmplitudeA);
       registry.get<TH1>(HIST("exclusive/FT0/FT0Camp"))->Fill(totAmplitudeC);
       registry.get<TH2>(HIST("exclusive/FT0/FT0ACCorr"))
-          ->Fill(totAmplitudeA, totAmplitudeC);
+        ->Fill(totAmplitudeA, totAmplitudeC);
 
       registry.get<TH1>(HIST("exclusive/FV0/FV0Amp"))->Fill(totalAmplitudefv0);
       registry.get<TH2>(HIST("exclusive/FDD/FDDACCorr"))
-          ->Fill(totAmpFddA, totAmpFddC);
+        ->Fill(totAmpFddA, totAmpFddC);
 
       registry.get<TH2>(HIST("exclusive/FV0T0ACorr"))
-          ->Fill(totAmplitudeA, totalAmplitudefv0);
+        ->Fill(totAmplitudeA, totalAmplitudefv0);
       registry.get<TH2>(HIST("exclusive/FV0T0CCorr"))
-          ->Fill(totAmplitudeC, totalAmplitudefv0);
+        ->Fill(totAmplitudeC, totalAmplitudefv0);
 
       registry.get<TH2>(HIST("exclusive/FT0DDACorr"))
-          ->Fill(totAmplitudeA, totAmpFddA);
+        ->Fill(totAmplitudeA, totAmpFddA);
       registry.get<TH2>(HIST("exclusive/FT0DDCCorr"))
-          ->Fill(totAmplitudeC, totAmpFddC);
+        ->Fill(totAmplitudeC, totAmpFddC);
       registry.get<TH2>(HIST("exclusive/FT0CFDDA"))
-          ->Fill(totAmplitudeC, totAmpFddA);
+        ->Fill(totAmplitudeC, totAmpFddA);
       registry.get<TH2>(HIST("exclusive/FT0AFDDC"))
-          ->Fill(totAmplitudeA, totAmpFddC);
+        ->Fill(totAmplitudeA, totAmpFddC);
       registry.get<TH2>(HIST("exclusive/FV0AFDDA"))
-          ->Fill(totalAmplitudefv0, totAmpFddA);
+        ->Fill(totalAmplitudefv0, totAmpFddA);
       registry.get<TH2>(HIST("exclusive/FV0AFDDC"))
-          ->Fill(totalAmplitudefv0, totAmpFddC);
+        ->Fill(totalAmplitudefv0, totAmpFddC);
 
       // PV contributors
       int nPVcont = 0;
       int ntrks = 0;
-      for (auto const &trk : tracks) {
+      for (auto const& trk : tracks) {
         if (trk.eta() > -1.5 && trk.eta() < 1.5) {
           if (trk.pt() < 10) {
             if (trk.isPVContributor()) {
@@ -1859,12 +1869,12 @@ struct FITtest {
             }
             ntrks++;
             registry.get<TH2>(HIST("exclusive/etapt"))
-                ->Fill(trk.eta(), trk.pt(), 1.);
+              ->Fill(trk.eta(), trk.pt(), 1.);
             registry.get<TH2>(HIST("exclusive/dEdxTPC"))
-                ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
+              ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
             if (trk.hasTOF()) {
               registry.get<TH2>(HIST("exclusive/dEdxTOF"))
-                  ->Fill(trk.p() / trk.sign(), trk.beta());
+                ->Fill(trk.p() / trk.sign(), trk.beta());
             }
           }
         }
@@ -1876,20 +1886,20 @@ struct FITtest {
       registry.get<TH1>(HIST("exclusive/ZDC/ZNAamp"))->Fill(totAmpZNA);
       registry.get<TH1>(HIST("exclusive/ZDC/ZNCamp"))->Fill(totAmpZNC);
       registry.get<TH2>(HIST("exclusive/ZDC/ZNACCorr"))
-          ->Fill(totAmpZNA, totAmpZNC);
+        ->Fill(totAmpZNA, totAmpZNC);
 
       registry.get<TH1>(HIST("exclusive/ZDC/ZPAamp"))->Fill(totAmpZPA);
       registry.get<TH1>(HIST("exclusive/ZDC/ZPCamp"))->Fill(totAmpZPC);
       registry.get<TH2>(HIST("exclusive/ZDC/ZPACCorr"))
-          ->Fill(totAmpZPA, totAmpZPC);
+        ->Fill(totAmpZPA, totAmpZPC);
 
       registry.get<TH1>(HIST("exclusive/ZDC/ZEM1amp"))->Fill(totAmpZEM1);
       registry.get<TH1>(HIST("exclusive/ZDC/ZEM2amp"))->Fill(totAmpZEM2);
       registry.get<TH2>(HIST("exclusive/ZDC/ZEM12Corr"))
-          ->Fill(totAmpZEM1, totAmpZEM2);
+        ->Fill(totAmpZEM1, totAmpZEM2);
 
       // PV contributors
-      for (auto const &trk : tracks) {
+      for (auto const& trk : tracks) {
         if (trk.eta() > -1.5 && trk.eta() < 1.5) {
           if (trk.pt() < 10) {
             if (trk.isPVContributor()) {
@@ -1897,12 +1907,12 @@ struct FITtest {
               registry.get<TH1>(HIST("exclusive/trkptZDC"))->Fill(trk.pt());
             }
             registry.get<TH2>(HIST("exclusive/etaptZDC"))
-                ->Fill(trk.eta(), trk.pt(), 1.);
+              ->Fill(trk.eta(), trk.pt(), 1.);
             registry.get<TH2>(HIST("exclusive/dEdxTPCZDC"))
-                ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
+              ->Fill(trk.tpcInnerParam() / trk.sign(), trk.tpcSignal());
             if (trk.hasTOF()) {
               registry.get<TH2>(HIST("exclusive/dEdxTOFZDC"))
-                  ->Fill(trk.p() / trk.sign(), trk.beta());
+                ->Fill(trk.p() / trk.sign(), trk.beta());
             }
           }
         }
@@ -1917,8 +1927,9 @@ struct FITtest {
                  "Process exclusiveUPC veto A and C sides", true);
 };
 
-WorkflowSpec defineDataProcessing(ConfigContext const &cfgc) {
+WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
+{
   return WorkflowSpec{
-      adaptAnalysisTask<FITtest>(cfgc, TaskName{"fittest"}),
+    adaptAnalysisTask<FITtest>(cfgc, TaskName{"fittest"}),
   };
 }
