@@ -25,9 +25,9 @@ class pidSelector
 {
  public:
   // constructor/destructor
-  pidSelector() {};
+  pidSelector(){};
   explicit pidSelector(std::vector<std::vector<double>>& pidcuts);
-  ~pidSelector() {};
+  ~pidSelector(){};
 
   // setter
   void clear();
@@ -156,9 +156,9 @@ class angleCut
 {
  public:
   // constructor/destructor
-  angleCut() {};
+  angleCut(){};
   explicit angleCut(std::pair<std::string, std::string> rNames, double angleMin, double angleMax);
-  ~angleCut() {};
+  ~angleCut(){};
 
   std::pair<std::string, std::string> rNames() { return fRnames; }
   std::pair<double, double> angleRange() { return std::pair<double, double>{fAngleMin, fAngleMax}; }
@@ -178,14 +178,14 @@ class reconstructedParticle
 {
  public:
   // constructor/destructor
-  reconstructedParticle() {};
+  reconstructedParticle(){};
   explicit reconstructedParticle(std::string name, TLorentzVector ivm, std::vector<int>& comb)
   {
     fName = name;
     fIVM = ivm;
     fComb = comb;
   };
-  ~reconstructedParticle() {};
+  ~reconstructedParticle(){};
 
   std::string name() { return fName; }
   TLorentzVector lv() { return fIVM; }
@@ -209,14 +209,14 @@ class reconstructedEvent
 {
  public:
   // constructor/destructor
-  reconstructedEvent() {};
+  reconstructedEvent(){};
   explicit reconstructedEvent(recResType recs, int chargeState, std::vector<int>& comb)
   {
     fRecs = recs;
     fComb = comb;
     fChargeState = chargeState;
   };
-  ~reconstructedEvent() {};
+  ~reconstructedEvent(){};
 
   recResType recResonances() { return fRecs; }
   std::vector<int> comb() { return fComb; }
@@ -235,7 +235,7 @@ class resonance
  public:
   // constructor/destructor
   resonance();
-  ~resonance() {};
+  ~resonance(){};
 
   // setters
   void init();
